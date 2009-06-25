@@ -1,0 +1,63 @@
+= FeedSpeaker
+
+Uses the Mac's TTS functionality to read your RSS feeds to you.
+
+
+== Install
+
+  git clone git://github.com/bratta/mactts.git
+  sudo gem sources -a http://gems.github.com
+  sudo gem install sanitize htmlentities bratta-mactts activerecord
+  
+  Then edit your config/database.yml and config/feeds.yml to your liking
+  
+  After that, call "rake speak" or add it to cron:
+  
+  0 * * * * cd /path/to/code; /usr/bin/rake speak > /dev/null
+
+
+== Usage
+
+This program fetches RSS feeds and will audibly read them to you,
+keeping track of which ones have been read. It will also allow 
+you to specifiy a number of items to read so if your RSS feed 
+is busy, it won't be reading to you all afternoon. 
+
+It uses the bratta-mactts gem from github as well as a lot of 
+other utilities to make it play nice, such as ActiveRecord. It was
+tested with ActiveRecord 2.3.2 but doesn't use anything real fancy
+so it *should* work with anything 2+. YMMV
+
+The database.yml does not utilize environments, as I'm not deploying
+this code anywhere other than cloning it to my machine, but you can
+most certainly add in environmentally-awareness-titude to AR and 
+play with it until your heart is content.
+
+The feeds.yml file is pretty basic. And there's no checking for 
+missing attributes, so don't remove any of the settings from there;
+just fiddle with them as much as you want. You should be able to add
+as many feeds as you want, but keep in mind that it will speak the
+"speak_only" setting for EACH feed, so it can add up really quick.
+
+I don't expect this to be useful to anyone. This was mainly done 
+as an exercise in playing with the mactts gem and wanting to have
+a bit of fun with Ruby outside of Rails. If you find use, I'm 
+glad. Feel free to fork and do what you wish.
+
+
+== License
+
+Copyright (c) 2009 Tim Gourley
+ 
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.

@@ -1,0 +1,5 @@
+---
+speak_only: 5
+voice: alex
+feeds:
+  - "http://rss.cnn.com/rss/cnn_topstories.rss"
