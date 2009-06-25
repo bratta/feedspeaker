@@ -11,11 +11,14 @@ this is Mac only, really, THIS MEANS YOU! ;p
   git clone git://github.com/bratta/feedspeaker.git
   gem sources -a http://gems.github.com
   # Skip activerecord if you already have rails 2+ installed
-  gem install sanitize htmlentities bratta-mactts activerecord
+  gem install sanitize htmlentities bratta-mactts rspec activerecord
   
-  Then edit your config/database.yml and config/feeds.yml to your liking
+Then edit your config/database.yml and config/feeds.yml to your liking
   
-  After that, call "rake speak" or add it to cron:
+  cd /path/to/cloned/feedspeaker
+  rake db:migrate
+  
+After that, call "rake speak" or add it to cron:
   
   0 * * * * cd /path/to/code; /usr/bin/rake speak > /dev/null
 
