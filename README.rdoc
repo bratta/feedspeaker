@@ -5,9 +5,13 @@ Uses the Mac's TTS functionality to read your RSS feeds to you.
 
 == Install
 
-  git clone git://github.com/bratta/mactts.git
-  sudo gem sources -a http://gems.github.com
-  sudo gem install sanitize htmlentities bratta-mactts activerecord
+Be sure to use sudo for your gem installation if necessary! Since
+this is Mac only, really, THIS MEANS YOU! ;p
+
+  git clone git://github.com/bratta/feedspeaker.git
+  gem sources -a http://gems.github.com
+  # Skip activerecord if you already have rails 2+ installed
+  gem install sanitize htmlentities bratta-mactts activerecord
   
   Then edit your config/database.yml and config/feeds.yml to your liking
   
